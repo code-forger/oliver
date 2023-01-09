@@ -10,8 +10,10 @@
   },
   "dependencies": {
     "@next/font": "13.1.1",
+    "airtable": "^0.11.6",
     "eslint": "8.31.0",
     "eslint-config-next": "13.1.1",
+    "fetchye": "^1.1.2",
     "next": "13.1.1",
     "react": "18.2.0",
     "react-dom": "18.2.0"

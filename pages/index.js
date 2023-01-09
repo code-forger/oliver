@@ -20,7 +20,7 @@ export default function Home() {
       });
     setWord('')
     run();
-  })
+  }, [word])
 
   return (
     <>
@@ -41,7 +41,7 @@ export default function Home() {
           {!isLoading && (
               <span>
                   <p>Words: ({data.body.length})</p>
-                  { data.body.map(item => <p>{item}</p>) }
+                  { data.body.map(item => <p key={item}>{item}</p>) }
 
               </span>
           )}

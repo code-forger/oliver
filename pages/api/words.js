@@ -8,7 +8,7 @@ const getWords = async res => new Promise((resolve, reject) => {
   const data = [];
   base('Table 1').select({
     // Selecting the first 3 records in Grid view:
-    maxRecords: 3,
+    maxRecords: 10000,
     view: "Grid view"
   }).eachPage(function page(records, fetchNextPage) {
     // This function (`page`) will get called for each page of records.

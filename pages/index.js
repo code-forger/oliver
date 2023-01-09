@@ -14,10 +14,14 @@ export default function Home() {
 
   const addWord = React.useCallback(async () => {
     console.log('addWord ' + word);
-    await fetch('api/words', {
-        method: 'POST',
-        body: JSON.stringify({word})
-      });
+    if (!data.body.includes(word.toLowerCase())) {
+        await fetch('api/words', {
+            method: 'POST',
+            body: JSON.stringify({word})
+        });
+    } else {
+        console.log('reject as duplicate ' + word);
+    }
     setWord('')
     run();
   }, [word])
@@ -31,7 +35,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-          <input type="text" value={word} onChange={(event) => setWord(event.target.value)}/>
+          <input type="text" id='wordInput' value={word} onChange={(event) => setWord(event.target.value)}/>
           <button type="button" onClick={addWord}> Add Word </button>
           {isLoading && (
               <span>

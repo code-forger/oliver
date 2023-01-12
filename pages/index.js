@@ -35,7 +35,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-          <input type="text" id='wordInput' value={word} onChange={(event) => setWord(event.target.value)}/>
+          <input className={styles.input} type="text" id='wordInput' value={word} onChange={(event) => setWord(event.target.value)}/>
           <button type="button" onClick={addWord}> Add Word </button>
           {isLoading && (
               <span>
@@ -43,9 +43,9 @@ export default function Home() {
               </span>
           )}
           {!isLoading && (
-              <span>
+              <span className={styles.words}>
                   <p>Words: ({data.body.length})</p>
-                  { data.body.map(item => <p key={item}>{item}</p>) }
+                  { data.body.sort((a, b) => a.localeCompare(b)).map(item => <p key={item}>{item}</p>) }
 
               </span>
           )}
